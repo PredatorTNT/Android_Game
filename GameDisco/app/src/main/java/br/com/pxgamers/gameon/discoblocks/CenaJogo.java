@@ -5,6 +5,7 @@ import br.com.pxgamers.gameon.discoblocks.AndGraph.AGGameManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGInputManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGScene;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGScreenManager;
+import br.com.pxgamers.gameon.discoblocks.AndGraph.AGSoundManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGSprite;
 
 public class CenaJogo extends AGScene {
@@ -27,6 +28,7 @@ public class CenaJogo extends AGScene {
         vrFundoJogo = createSprite(R.drawable.fundo, 1, 1);
         vrFundoJogo.setScreenPercent(100, 100);
         vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        AGSoundManager.vrMusic.setVolume(0.2f, 0.2f);
 
     }
 

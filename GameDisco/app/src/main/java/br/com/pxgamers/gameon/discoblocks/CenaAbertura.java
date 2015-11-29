@@ -25,7 +25,7 @@ public class CenaAbertura extends AGScene {
         Logo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
         Logo.fadeIn(4000);
         estadoLogo = 0;
-        AGSoundManager.vrMusic.loadMusic("musica.mp3", true);
+        AGSoundManager.vrMusic.loadMusic("trilha.mp3", true);
         AGSoundManager.vrMusic.play();
     }
 

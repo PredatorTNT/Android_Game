@@ -26,7 +26,7 @@ public class CenaMenu extends AGScene {
         vrNomeJovo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,
                 AGScreenManager.iScreenHeight - vrNomeJovo.getSpriteHeight() / 2);
 
-        AGSoundManager.vrMusic.setVolume(1, 1);
+        AGSoundManager.vrMusic.setVolume(0.5f, 0.5f);
 
         vrBotaoSobre = createSprite(R.drawable.btnsobre, 1, 1);
         vrBotaoSobre.setScreenPercent(40, 10);
