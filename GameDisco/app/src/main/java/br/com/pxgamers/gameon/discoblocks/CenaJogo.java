@@ -54,7 +54,7 @@ public class CenaJogo extends AGScene {
         vrTempoAlfredo = new AGTimer(100);
         AGSoundManager.vrMusic.stop();
         AGSoundManager.vrMusic.loadMusic("disco_drum_loop.mp3", true);
-        AGSoundManager.vrMusic.setVolume(1f, 1f);
+        AGSoundManager.vrMusic.setVolume(0.8f, 0.8f);
         AGSoundManager.vrMusic.play();
 
         somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
