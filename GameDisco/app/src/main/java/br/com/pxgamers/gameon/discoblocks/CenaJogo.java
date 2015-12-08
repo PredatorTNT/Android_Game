@@ -40,7 +40,6 @@ public class CenaJogo extends AGScene {
     //Metodo chamado sempre que a sena é exibida
     public void init() {
         setSceneBackgroundColor(1,1,1);
-
         vrFundoJogo = createSprite(R.drawable.fundo,1,1);
         vrFundoJogo.setScreenPercent(100, 100);
         vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
@@ -53,6 +52,11 @@ public class CenaJogo extends AGScene {
         vrAlfredoJogo.addAnimation(5, true, 11, 15);
         vrAlfredoJogo.addAnimation(5, true, 17, 22);
         vrTempoAlfredo = new AGTimer(100);
+        AGSoundManager.vrMusic.stop();
+        AGSoundManager.vrMusic.loadMusic("disco_drum_loop.mp3", true);
+        AGSoundManager.vrMusic.setVolume(1f, 1f);
+        AGSoundManager.vrMusic.play();
+
         somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
     }
     private void trataTelaPressionada() {
