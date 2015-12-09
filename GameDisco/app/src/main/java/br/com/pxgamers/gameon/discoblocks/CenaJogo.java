@@ -52,12 +52,14 @@ public class CenaJogo extends AGScene {
         vrAlfredoJogo.addAnimation(5, true, 11, 15);
         vrAlfredoJogo.addAnimation(5, true, 17, 22);
         vrTempoAlfredo = new AGTimer(100);
+
         AGSoundManager.vrMusic.stop();
-        AGSoundManager.vrMusic.loadMusic("disco_drum_loop.mp3", true);
+        AGSoundManager.vrMusic.loadMusic("loopBateria.wav", true);
         AGSoundManager.vrMusic.setVolume(0.8f, 0.8f);
         AGSoundManager.vrMusic.play();
 
         somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
+
     }
     private void trataTelaPressionada() {
         vrTempoAlfredo.update();
