@@ -14,6 +14,11 @@ import br.com.pxgamers.gameon.discoblocks.AndGraph.AGTimer;
 public class CenaJogo extends AGScene {
 
     private AGSprite vrAlfredoJogo = null;
+
+    private AGSprite vrCaixaJogo1 = null;
+    private AGSprite vrCaixaJogo2 = null;
+    private AGSprite vrCaixaJogo3 = null;
+
     private AGSprite[] vrCaixaJogo = null;
     private AGSprite vrFundoJogo = null;
 
@@ -39,12 +44,12 @@ public class CenaJogo extends AGScene {
 
     //Metodo chamado sempre que a sena é exibida
     public void init() {
-        setSceneBackgroundColor(1,1,1);
+        setSceneBackgroundColor(1, 1, 1);
         vrFundoJogo = createSprite(R.drawable.fundo,1,1);
         vrFundoJogo.setScreenPercent(100, 100);
         vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
 
-        vrAlfredoJogo = createSprite(R.drawable.alfredo_redimen,23,1);
+        vrAlfredoJogo = createSprite(R.drawable.alfredo,23,1);
         vrAlfredoJogo.setScreenPercent(20, 40);
         vrAlfredoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, vrAlfredoJogo.getSpriteHeight() / 2);
         vrAlfredoJogo.addAnimation(5, true, 1, 4);
@@ -53,11 +58,26 @@ public class CenaJogo extends AGScene {
         vrAlfredoJogo.addAnimation(5, true, 17, 22);
         vrTempoAlfredo = new AGTimer(100);
 
+        vrCaixaJogo1 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo1.setScreenPercent(30, 30);
+        vrCaixaJogo1.vrPosition.setXY(AGScreenManager.iScreenWidth / 2 - vrCaixaJogo1.getSpriteWidth(), AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
+        vrCaixaJogo1.addAnimation(5, true, 0, 7);
+
+
+        vrCaixaJogo2 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo2.setScreenPercent(30, 30);
+        vrCaixaJogo2.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
+        vrCaixaJogo2.addAnimation(5, true, 8, 15);
+
+        vrCaixaJogo3 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo3.setScreenPercent(30, 30);
+        vrCaixaJogo3.vrPosition.setXY(AGScreenManager.iScreenWidth / 2 + vrCaixaJogo3.getSpriteWidth(),  AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
+        vrCaixaJogo3.addAnimation(5, true, 16, 22);
+
         AGSoundManager.vrMusic.stop();
         AGSoundManager.vrMusic.loadMusic("loopBateria.wav", true);
         AGSoundManager.vrMusic.setVolume(0.8f, 0.8f);
         AGSoundManager.vrMusic.play();
-
         somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
 
     }
