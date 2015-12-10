@@ -45,34 +45,35 @@ public class CenaJogo extends AGScene {
     //Metodo chamado sempre que a sena é exibida
     public void init() {
         setSceneBackgroundColor(1, 1, 1);
-        vrFundoJogo = createSprite(R.drawable.fundo,1,1);
-        vrFundoJogo.setScreenPercent(100, 100);
-        vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        vrFundoJogo = createSprite(R.drawable.fundo_jogo,2,1);
+        vrFundoJogo.setScreenPercent(100, 120);
+        vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, (AGScreenManager.iScreenHeight / 2) - (vrFundoJogo.getSpriteHeight()/ 6));
+        vrFundoJogo.addAnimation(4, true, 0, 1);
+        vrFundoJogo.setCurrentAnimation(0);
 
-        vrAlfredoJogo = createSprite(R.drawable.alfredo,23,1);
+        vrAlfredoJogo = createSprite(R.drawable.alfredo_redimen,23,1);
         vrAlfredoJogo.setScreenPercent(20, 40);
         vrAlfredoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, vrAlfredoJogo.getSpriteHeight() / 2);
-        vrAlfredoJogo.addAnimation(5, true, 1, 4);
-        vrAlfredoJogo.addAnimation(5, true, 6, 9);
-        vrAlfredoJogo.addAnimation(5, true, 11, 15);
-        vrAlfredoJogo.addAnimation(5, true, 17, 22);
+        vrAlfredoJogo.addAnimation(3, true, 1, 4);
+        vrAlfredoJogo.addAnimation(3, true, 6, 9);
+        vrAlfredoJogo.addAnimation(3, true, 11, 15);
+        vrAlfredoJogo.addAnimation(3, true, 17, 22);
         vrTempoAlfredo = new AGTimer(100);
 
-        vrCaixaJogo1 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo1 = createSprite(R.drawable.caixa_redimen,23,1);
         vrCaixaJogo1.setScreenPercent(30, 30);
         vrCaixaJogo1.vrPosition.setXY(AGScreenManager.iScreenWidth / 2 - vrCaixaJogo1.getSpriteWidth(), AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
-        vrCaixaJogo1.addAnimation(5, true, 0, 7);
+        vrCaixaJogo1.addAnimation(3, true, 0, 7);
 
-
-        vrCaixaJogo2 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo2 = createSprite(R.drawable.caixa_redimen,23,1);
         vrCaixaJogo2.setScreenPercent(30, 30);
         vrCaixaJogo2.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
-        vrCaixaJogo2.addAnimation(5, true, 8, 15);
+        vrCaixaJogo2.addAnimation(3, true, 8, 15);
 
-        vrCaixaJogo3 = createSprite(R.drawable.caixa1,23,1);
+        vrCaixaJogo3 = createSprite(R.drawable.caixa_redimen,23,1);
         vrCaixaJogo3.setScreenPercent(30, 30);
         vrCaixaJogo3.vrPosition.setXY(AGScreenManager.iScreenWidth / 2 + vrCaixaJogo3.getSpriteWidth(),  AGScreenManager.iScreenHeight - vrCaixaJogo1.getSpriteWidth());
-        vrCaixaJogo3.addAnimation(5, true, 16, 22);
+        vrCaixaJogo3.addAnimation(3, true, 16, 22);
 
         AGSoundManager.vrMusic.stop();
         AGSoundManager.vrMusic.loadMusic("loopBateria.wav", true);
