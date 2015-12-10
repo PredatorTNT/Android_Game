@@ -2,6 +2,7 @@ package br.com.pxgamers.gameon.discoblocks;
 
 
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGGameManager;
+import br.com.pxgamers.gameon.discoblocks.AndGraph.AGInputManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGScene;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGScreenManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGSoundManager;
@@ -79,7 +80,9 @@ public class CenaAbertura extends AGScene {
             Disco.setCurrentAnimation(0);
             estadoDisco = 2;
         }
-
         if (estadoDisco == 2 && estadoLogo == 2 && contador >= 500) vrGameManager.setCurrentScene(1);
+        if(AGInputManager.vrTouchEvents.screenClicked()){
+            vrGameManager.setCurrentScene(1);
+        }
     }
 }
