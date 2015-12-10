@@ -44,7 +44,7 @@ public class CenaJogo extends AGScene {
         vrFundoJogo.setScreenPercent(100, 100);
         vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
 
-        vrAlfredoJogo = createSprite(R.drawable.alfredo,23,1);
+        vrAlfredoJogo = createSprite(R.drawable.alfredo_redimen,23,1);
         vrAlfredoJogo.setScreenPercent(20, 40);
         vrAlfredoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, vrAlfredoJogo.getSpriteHeight() / 2);
         vrAlfredoJogo.addAnimation(5, true, 1, 4);
