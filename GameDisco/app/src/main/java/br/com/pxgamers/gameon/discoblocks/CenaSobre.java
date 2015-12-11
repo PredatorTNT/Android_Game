@@ -11,6 +11,8 @@ public class CenaSobre extends AGScene {
 
     private AGSprite vrCreditos = null;
 
+    private int piscaCor = 0;
+
     //contruto de cena
     public CenaSobre(AGGameManager vrGerente) {
         super(vrGerente);
@@ -18,11 +20,11 @@ public class CenaSobre extends AGScene {
 
     //Metodo chamado sempre que a sena é exibida
     public void init() {
-        setSceneBackgroundColor(1, 1, 1);
-        vrCreditos = createSprite(R.drawable.creditos, 1, 1);
-        vrCreditos.setScreenPercent(90, 45);
+        setSceneBackgroundColor(0.541176f, 0.168627f, 0.886275f);
+        vrCreditos = createSprite(R.drawable.telacreditos, 1, 1);
+        vrCreditos.setScreenPercent(50, 100);
         vrCreditos.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, -vrCreditos.getSpriteHeight() / 2);
-        vrCreditos.moveTo(10000, vrCreditos.vrPosition.fX, AGScreenManager.iScreenHeight + (vrCreditos.getSpriteHeight() / 2));
+        vrCreditos.moveTo(16000, vrCreditos.vrPosition.fX, AGScreenManager.iScreenHeight + (vrCreditos.getSpriteHeight() / 2));
     }
 
     //chamado após uma interrupção de um aplicativo
@@ -37,6 +39,17 @@ public class CenaSobre extends AGScene {
 
     //Metodo chamado quadro a quadro(logica do jogo)
     public void loop() {
+        piscaCor ++;
+
+        //violeta
+        if(piscaCor == 1) setSceneBackgroundColor(0.541176f, 0.168627f, 0.886275f);
+            //coral
+        else if(piscaCor == 80) setSceneBackgroundColor(0.941176f, 0.501961f, 0.501961f);
+            //lima
+        else if(piscaCor == 160) setSceneBackgroundColor(0.678431f, 1f, 0.184314f);
+
+        if (piscaCor == 240) piscaCor = 0;
+
         if (AGInputManager.vrTouchEvents.backButtonClicked()
                 || AGInputManager.vrTouchEvents.screenClicked()
                 || vrCreditos.moveEnded()) {
