@@ -303,8 +303,9 @@ public class CenaJogo extends AGScene {
             if (vetorDeCaixasVerde.get(indice).vrPosition.fY < vetorDeCaixasVerde.get(indice).getSpriteHeight()) {
                 vetorDeCaixasVerde.get(indice).bRecycled = true;
                 vetorDeCaixasVerde.get(indice).bVisible = false;
-                vPontuacaoTemp = vPontuacaoTemp + 1;
 
+                //Add Ponto
+                //vPontuacaoTemp = vPontuacaoTemp + 1;
             }
 
         }
@@ -368,7 +369,10 @@ public class CenaJogo extends AGScene {
             if (vetorDeCaixasRosas.get(indice).vrPosition.fY < vetorDeCaixasRosas.get(indice).getSpriteHeight()) {
                 vetorDeCaixasRosas.get(indice).bRecycled = true;
                 vetorDeCaixasRosas.get(indice).bVisible = false;
-                vPontuacaoTemp = vPontuacaoTemp + 1;
+
+
+               //Add Ponto
+                //vPontuacaoTemp = vPontuacaoTemp + 1;
 
             }
 
@@ -434,7 +438,8 @@ public class CenaJogo extends AGScene {
             if (vetorDeCaixasAzul.get(indice).vrPosition.fY < vetorDeCaixasAzul.get(indice).getSpriteHeight()) {
                 vetorDeCaixasAzul.get(indice).bRecycled = true;
                 vetorDeCaixasAzul.get(indice).bVisible = false;
-                vPontuacaoTemp = vPontuacaoTemp + 1;
+                //Add Ponto
+                //vPontuacaoTemp = vPontuacaoTemp + 1;
 
             }
 
