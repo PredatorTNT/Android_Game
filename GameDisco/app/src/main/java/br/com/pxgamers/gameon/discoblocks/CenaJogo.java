@@ -145,7 +145,7 @@ public class CenaJogo extends AGScene {
             }
             else {
                 vrPlacarInfo[i].vrPosition.setXY(vrPlacarInfo[i-1].vrPosition.fX +
-                                (vrPlacarInfo[i].getSpriteWidth()), vrBarraPlacar.vrPosition.fY);
+                                vrPlacarInfo[i].getSpriteWidth(), vrBarraPlacar.vrPosition.fY);
             }
         }
 
