@@ -40,7 +40,6 @@ public class CenaAbertura extends AGScene {
         Disco.addAnimation(3,true,0,3);
         estadoDisco = 0;
 
-        AGSoundManager.vrMusic.loadMusic("musicaMenu.mp3", true);
     }
 
     //chamado após uma interrupção de um aplicativo
@@ -68,7 +67,6 @@ public class CenaAbertura extends AGScene {
 
                 setSceneBackgroundColor(0.541176f, 0.168627f, 0.886275f);
                 Disco.bVisible = true;
-                AGSoundManager.vrMusic.play();
                 estadoDisco = 1;
 
                 estadoLogo = 2;

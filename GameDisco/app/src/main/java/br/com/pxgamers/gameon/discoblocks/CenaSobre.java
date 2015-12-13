@@ -22,7 +22,7 @@ public class CenaSobre extends AGScene {
     public void init() {
         setSceneBackgroundColor(0.541176f, 0.168627f, 0.886275f);
         vrCreditos = createSprite(R.drawable.telacreditos, 1, 1);
-        vrCreditos.setScreenPercent(50, 100);
+        vrCreditos.setScreenPercent(100, 100);
         vrCreditos.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, -vrCreditos.getSpriteHeight() / 2);
         vrCreditos.moveTo(16000, vrCreditos.vrPosition.fX, AGScreenManager.iScreenHeight + (vrCreditos.getSpriteHeight() / 2));
     }
