@@ -46,6 +46,10 @@ public class CenaJogo extends AGScene {
 
     private int somBoneco = 0;
     private int somMorte = 0;
+    private int somCaixaVerde = 0;
+    private int somCaixaRosa = 0;
+    private int somCaixaAzul = 0;
+
     private int somCaixa = 0;
     private Float cornerSize;
 
@@ -168,7 +172,13 @@ public class CenaJogo extends AGScene {
         AGSoundManager.vrMusic.loadMusic("loopBateria.wav", true);
         AGSoundManager.vrMusic.setVolume(0.8f, 0.8f);
         AGSoundManager.vrMusic.play();
-        somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
+
+        somCaixaVerde = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaBaixo.wav");
+        somCaixaRosa = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaPiano.wav");
+        somCaixaAzul = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
+
+        somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("moveAlfredo.wav");
+        somMorte = AGSoundManager.vrSoundEffects.loadSoundEffect("morteAlfredo.wav");
 
     }
     public void render(){
@@ -465,7 +475,7 @@ public class CenaJogo extends AGScene {
                 if(vetorDeCaixasVerde.get(iIndex).collide(vrAlfredoJogo)){
                     vetorDeCaixasVerde.get(iIndex).bRecycled = true;
                     vetorDeCaixasVerde.get(iIndex).bVisible = false;
-                    AGSoundManager.vrSoundEffects.play(somCaixa);
+                    AGSoundManager.vrSoundEffects.play(somMorte);
                     //fazer
                    //quebraCaixa(vrAlfredoJogo.vrPosition.fX, vrAlfredoJogo.vrPosition.fY);
                     vPontuacaoTemp = vPontuacaoTemp - 10;
