@@ -118,25 +118,25 @@ public class CenaJogo extends AGScene {
 
         somCaixa = AGSoundManager.vrSoundEffects.loadSoundEffect("quebracaixa2.wav");
 
-        vrCaixaJogo1 = createSprite(R.drawable.caixa_redimen,23,1);
+        vrCaixaJogo1 = createSprite(R.drawable.caixa_verde,8,1);
         vrCaixaJogo1.setScreenPercent(22, 13);
         vrCaixaJogo1.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 - vrCaixaJogo1.getSpriteWidth() / 2 - (cornerSize / 2), AGScreenManager.iScreenHeight);
         vrCaixaJogo1.addAnimation(1, true, 0);
         vrCaixaJogo1.addAnimation(3, true, 0, 7);
         vrCaixaJogo1.setCurrentAnimation(0);
 
-        vrCaixaJogo2 = createSprite(R.drawable.caixa_redimen,23,1);
+        vrCaixaJogo2 = createSprite(R.drawable.caixa_rosa,8,1);
         vrCaixaJogo2.setScreenPercent(22, 13);
         vrCaixaJogo2.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight);
-        vrCaixaJogo2.addAnimation(1, true, 8);
-        vrCaixaJogo2.addAnimation(3, true, 8, 15);
+        vrCaixaJogo2.addAnimation(1, true, 0);
+        vrCaixaJogo2.addAnimation(3, true, 0, 7);
         vrCaixaJogo2.setCurrentAnimation(0);
 
-        vrCaixaJogo3 = createSprite(R.drawable.caixa_redimen,23,1);
+        vrCaixaJogo3 = createSprite(R.drawable.caixa_azul,8,1);
         vrCaixaJogo3.setScreenPercent(22, 13);
         vrCaixaJogo3.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 + (vrCaixaJogo3.getSpriteWidth() * 2) + (cornerSize / 2), AGScreenManager.iScreenHeight);
-        vrCaixaJogo3.addAnimation(1, true, 16);
-        vrCaixaJogo3.addAnimation(3, true, 16, 22);
+        vrCaixaJogo3.addAnimation(1, true, 0);
+        vrCaixaJogo3.addAnimation(3, true, 0, 7);
         vrCaixaJogo3.setCurrentAnimation(0);
 
         ////////////////////////
@@ -353,7 +353,7 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_verde,8,1);
         vrNovaCaixa.setScreenPercent(22, 13);
         vrNovaCaixa.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 - vrNovaCaixa.getSpriteWidth() / 2 - (cornerSize / 2), AGScreenManager.iScreenHeight);
         vrNovaCaixa.addAnimation(1, true, 0);
@@ -415,7 +415,7 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_verde,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
         vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
@@ -441,11 +441,11 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_rosa,8,1);
         vrNovaCaixa.setScreenPercent(22, 13);
         vrNovaCaixa.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight);
-        vrNovaCaixa.addAnimation(1, true, 8);
-        vrNovaCaixa.addAnimation(3, true, 8, 15);
+        vrNovaCaixa.addAnimation(1, true, 0);
+        vrNovaCaixa.addAnimation(3, true, 0, 7);
         vrNovaCaixa.setCurrentAnimation(0);
         vetorDeCaixasRosas.add(vrNovaCaixa);
     }
@@ -502,9 +502,9 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_rosa,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
-        vrNovaExplosao.addAnimation(3, false, 8, 15);
+        vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
         vetorDeQuebraCx2.add(vrNovaExplosao);
     }
@@ -530,11 +530,11 @@ public class CenaJogo extends AGScene {
             }
         }
 
-        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_azul,8,1);
         vrNovaCaixa.setScreenPercent(22, 13);
         vrNovaCaixa.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 + (vrNovaCaixa.getSpriteWidth() * 2) + (cornerSize / 2), AGScreenManager.iScreenHeight);
-        vrNovaCaixa.addAnimation(1, true, 16);
-        vrNovaCaixa.addAnimation(3, true, 16, 22);
+        vrNovaCaixa.addAnimation(1, true, 0);
+        vrNovaCaixa.addAnimation(3, true, 0, 7);
         vrNovaCaixa.setCurrentAnimation(0);
         vetorDeCaixasAzul.add(vrNovaCaixa);
     }
@@ -590,9 +590,9 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_redimen,23,1);
+        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_azul,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
-        vrNovaExplosao.addAnimation(3, false, 16, 22);
+        vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
         vetorDeQuebraCx3.add(vrNovaExplosao);
     }
