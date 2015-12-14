@@ -353,6 +353,8 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
+
+
         AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_verde,8,1);
         vrNovaCaixa.setScreenPercent(22, 13);
         vrNovaCaixa.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 - vrNovaCaixa.getSpriteWidth() / 2 - (cornerSize / 2), AGScreenManager.iScreenHeight);
@@ -360,6 +362,8 @@ public class CenaJogo extends AGScene {
         vrNovaCaixa.addAnimation(3, true, 0, 7);
         vrNovaCaixa.setCurrentAnimation(0);
         vetorDeCaixasVerde.add(vrNovaCaixa);
+
+
     }
     private void verificaCaixaVerde() {
         vrTempoCaixa1.update();
@@ -398,11 +402,11 @@ public class CenaJogo extends AGScene {
                 vetorDeCaixasVerde.get(iIndex).bVisible = false;
                 AGSoundManager.vrSoundEffects.play(somMorte);
                 quebraCaixaVerde(vrAlfredoJogo.vrPosition.fX, vrAlfredoJogo.vrPosition.fY);
-                vPontuacao = vPontuacao - 500;
+                if (vPontuacao > 500) vPontuacao  = vPontuacao - 500;
+                else vPontuacao = 0;
                 vrTempoMorte.restart();
                 vVidas--;
                 break;
-
             }
         }
     }
@@ -415,11 +419,13 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
-        AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_verde,8,1);
+
+        AGSprite vrNovaExplosao = createSprite(R.drawable.caixa_verde,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
         vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
         vetorDeQuebraCx1.add(vrNovaExplosao);
+
     }
     private void atualizaquebraCaixaVerde(){
         for (int iIndex = 0; iIndex < vetorDeQuebraCx1.size();iIndex++){
@@ -441,6 +447,7 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
+
         AGSprite vrNovaCaixa = createSprite(R.drawable.caixa_rosa,8,1);
         vrNovaCaixa.setScreenPercent(22, 13);
         vrNovaCaixa.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight);
@@ -448,6 +455,7 @@ public class CenaJogo extends AGScene {
         vrNovaCaixa.addAnimation(3, true, 0, 7);
         vrNovaCaixa.setCurrentAnimation(0);
         vetorDeCaixasRosas.add(vrNovaCaixa);
+
     }
     private void verificaCaixaRosa() {
         vrTempoCaixa2.update();
@@ -487,7 +495,8 @@ public class CenaJogo extends AGScene {
                 AGSoundManager.vrSoundEffects.play(somMorte);
                 quebraCaixaRosa(vrAlfredoJogo.vrPosition.fX, vrAlfredoJogo.vrPosition.fY);
                 vrTempoMorte.restart();
-                vPontuacao  = vPontuacao - 500;
+                if (vPontuacao > 500) vPontuacao  = vPontuacao - 500;
+                else vPontuacao = 0;
                 vVidas--;
                 break;
             }
@@ -502,11 +511,14 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
+
+
         AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_rosa,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
         vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
         vetorDeQuebraCx2.add(vrNovaExplosao);
+
     }
     private void atualizaquebraCaixaRosa(){
         for (int iIndex = 0; iIndex < vetorDeQuebraCx2.size();iIndex++){
@@ -524,7 +536,7 @@ public class CenaJogo extends AGScene {
             if (vetorDeCaixasAzul.get(indice).bRecycled == true) {
                 vetorDeCaixasAzul.get(indice).bRecycled = false;
                 vetorDeCaixasAzul.get(indice).bVisible = true;
-                vetorDeCaixasAzul.get(indice).vrPosition.setXY(vrCaixaJogo3.vrPosition.fX,  vrCaixaJogo3.vrPosition.fY  +  vetorDeCaixasAzul.get(indice).getSpriteHeight() / 2);
+                vetorDeCaixasAzul.get(indice).vrPosition.setXY(vrCaixaJogo3.vrPosition.fX, vrCaixaJogo3.vrPosition.fY  +  vetorDeCaixasAzul.get(indice).getSpriteHeight() / 2);
                 vetorDeCaixasAzul.get(indice).setCurrentAnimation(0);
                 return;
             }
@@ -537,6 +549,8 @@ public class CenaJogo extends AGScene {
         vrNovaCaixa.addAnimation(3, true, 0, 7);
         vrNovaCaixa.setCurrentAnimation(0);
         vetorDeCaixasAzul.add(vrNovaCaixa);
+
+
     }
     private void verificaCaixaAzul() {
         vrTempoCaixa3.update();
@@ -575,7 +589,8 @@ public class CenaJogo extends AGScene {
                 AGSoundManager.vrSoundEffects.play(somMorte);
                 quebraCaixaAzul(vrAlfredoJogo.vrPosition.fX, vrAlfredoJogo.vrPosition.fY);
                 vrTempoMorte.restart();
-                vPontuacao = vPontuacao - 500;
+                if (vPontuacao > 500) vPontuacao  = vPontuacao - 500;
+                else vPontuacao = 0;
                 vVidas--;
                 break;
             }
@@ -590,11 +605,15 @@ public class CenaJogo extends AGScene {
                 return;
             }
         }
+
+
         AGSprite  vrNovaExplosao = createSprite(R.drawable.caixa_azul,8,1);
         vrNovaExplosao.setScreenPercent(22, 13);
         vrNovaExplosao.addAnimation(3, false, 0, 7);
         vrNovaExplosao.vrPosition.setXY(posX, posY);
         vetorDeQuebraCx3.add(vrNovaExplosao);
+
+
     }
     private void atualizaquebraCaixaAzul(){
         for (int iIndex = 0; iIndex < vetorDeQuebraCx3.size();iIndex++){
