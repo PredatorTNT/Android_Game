@@ -9,7 +9,7 @@ import br.com.pxgamers.gameon.discoblocks.AndGraph.AGSoundManager;
 import br.com.pxgamers.gameon.discoblocks.AndGraph.AGSprite;
 
 public class CenaMenu extends AGScene {
-    private AGSprite vrNomeJovo = null;
+    private AGSprite vrNomeJogo = null;
     private AGSprite vrBotaoJogo = null;
     private AGSprite vrBotaoSobre = null;
     private AGSprite vrBotaoSair = null;
@@ -21,22 +21,25 @@ public class CenaMenu extends AGScene {
         super(vrGerente);
     }
 
-    //Metodo chamado sempre que a sena é exibida
+    //Metodo chamado sempre que a cena é exibida
     public void init() {
 
 
-        vrNomeJovo = createSprite(R.drawable.logo, 1, 1);
-        vrNomeJovo.setScreenPercent(80, 20);
-        vrNomeJovo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,
-                AGScreenManager.iScreenHeight - vrNomeJovo.getSpriteHeight() / 2);
+        vrNomeJogo = createSprite(R.drawable.logo, 1, 1);
+        vrNomeJogo.setScreenPercent(80, 20);
+        vrNomeJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2,
+                AGScreenManager.iScreenHeight - vrNomeJogo.getSpriteHeight() / 2);
 
+        AGSoundManager.vrMusic.stop();
+        AGSoundManager.vrMusic.loadMusic("musicaMenu.mp3", true);
+        AGSoundManager.vrMusic.play();
         AGSoundManager.vrMusic.setVolume(0.5f, 0.5f);
 
         vrBotaoSobre = createSprite(R.drawable.botaosobre, 1, 1);
         vrBotaoSobre.setScreenPercent(40, 15);
         vrBotaoSobre.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
 
-        vrBotaoJogo = createSprite(R.drawable.botaoiniciar, 1, 1);
+        vrBotaoJogo = createSprite(R.drawable.botaodancar, 1, 1);
         vrBotaoJogo.setScreenPercent(40, 15);
         vrBotaoJogo.vrPosition.setXY(vrBotaoSobre.vrPosition.fX, vrBotaoSobre.vrPosition.fY + vrBotaoJogo.getSpriteHeight() * 1.5f);
 

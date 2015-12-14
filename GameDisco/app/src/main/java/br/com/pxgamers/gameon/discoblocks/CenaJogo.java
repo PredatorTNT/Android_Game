@@ -15,6 +15,8 @@ public class CenaJogo extends AGScene {
 
     private AGSprite vrAlfredoJogo = null;
 
+    private AGSprite vrTelaMorte = null;
+
     private AGSprite vrCaixaJogo1 = null;
     private AGSprite vrCaixaJogo2 = null;
     private AGSprite vrCaixaJogo3 = null;
@@ -23,12 +25,9 @@ public class CenaJogo extends AGScene {
     private ArrayList<AGSprite> vetorDeQuebraCx2 = null;
     private ArrayList<AGSprite> vetorDeQuebraCx3 = null;
 
-
     private AGSprite vrFlechas1 = null;
     private AGSprite vrFlechas2 = null;
     private AGSprite vrFlechas3 = null;
-
-
 
     private AGSprite vrFundoJogo = null;
     private AGSprite vrBarraPlacar = null;
@@ -43,11 +42,14 @@ public class CenaJogo extends AGScene {
     private ArrayList<AGSprite> vetorDeCaixasRosas = null;
     private ArrayList<AGSprite> vetorDeCaixasAzul = null;
 
-
     private ArrayList<AGSprite> vetorDeQuebra = null;
 
     private int somBoneco = 0;
     private int somMorte = 0;
+    private int somCaixaVerde = 0;
+    private int somCaixaRosa = 0;
+    private int somCaixaAzul = 0;
+
     private int somCaixa = 0;
     private Float cornerSize;
 
@@ -59,7 +61,7 @@ public class CenaJogo extends AGScene {
         super(vrGerente);
     }
 
-    //Metodo chamado sempre que a sena é exibida
+    //Metodo chamado sempre que a cena é exibida
     public void init() {
         setSceneBackgroundColor(0, 0, 0);
         vrFundoJogo = createSprite(R.drawable.fundo_jogo,2,1);
@@ -67,7 +69,6 @@ public class CenaJogo extends AGScene {
         vrFundoJogo.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, (AGScreenManager.iScreenHeight) - (vrFundoJogo.getSpriteHeight() / 2));
         vrFundoJogo.addAnimation(4, true, 0, 1);
         vrFundoJogo.setCurrentAnimation(0);
-
 
         vrAlfredoJogo = createSprite(R.drawable.alfredo_redimen,23,1);
         vrAlfredoJogo.setScreenPercent(20, 25);
@@ -83,7 +84,6 @@ public class CenaJogo extends AGScene {
         vrTempoCaixa2 = new AGTimer(5000);
         vrTempoCaixa3 = new AGTimer(4000);
 
-
         cornerSize = vrFundoJogo.getSpriteWidth() / 13;
 
         vetorDeCaixasVerde = new ArrayList<AGSprite>();
@@ -93,9 +93,14 @@ public class CenaJogo extends AGScene {
         vetorDeQuebraCx1 = new ArrayList<AGSprite>();
         vetorDeQuebraCx2 = new ArrayList<AGSprite>();
         vetorDeQuebraCx3 = new ArrayList<AGSprite>();
+
+        vrTelaMorte = createSprite(R.drawable.tela_morte,2,1);
+        vrTelaMorte.setScreenPercent(100, 110);
+        vrTelaMorte.vrPosition.setXY(AGScreenManager.iScreenWidth / 2, AGScreenManager.iScreenHeight / 2);
+        vrTelaMorte.bVisible = false;
         //////////////////////////////
 
-        somCaixa = AGSoundManager.vrSoundEffects.loadSoundEffect("explodenavio.wav");
+        somCaixa = AGSoundManager.vrSoundEffects.loadSoundEffect("quebracaixa2.wav");
 
         vrCaixaJogo1 = createSprite(R.drawable.caixa_redimen,23,1);
         vrCaixaJogo1.setScreenPercent(22, 13);
@@ -103,8 +108,6 @@ public class CenaJogo extends AGScene {
         vrCaixaJogo1.addAnimation(1, true, 0);
         vrCaixaJogo1.addAnimation(3, true, 0, 7);
         vrCaixaJogo1.setCurrentAnimation(0);
-
-
 
         vrCaixaJogo2 = createSprite(R.drawable.caixa_redimen,23,1);
         vrCaixaJogo2.setScreenPercent(22, 13);
@@ -123,8 +126,6 @@ public class CenaJogo extends AGScene {
         vrCaixaJogo3.setCurrentAnimation(0);
 
         ////////////////////////
-
-
 
         vrBarraPlacar = createSprite(R.drawable.barra_placar, 1, 1);
         vrBarraPlacar.setScreenPercent(100, 14);
@@ -149,10 +150,6 @@ public class CenaJogo extends AGScene {
             }
         }
 
-
-
-
-
         vrFlechas1 = createSprite(R.drawable.flechas_verdes, 2, 1);
         vrFlechas1.setScreenPercent(50, 50);
         vrFlechas1.vrPosition.setXY(AGScreenManager.iScreenWidth / 3 - vrCaixaJogo1.getSpriteWidth() / 2 - (cornerSize / 2), AGScreenManager.iScreenHeight / 2 + vrFlechas1.getSpriteHeight() / 4);
@@ -171,12 +168,17 @@ public class CenaJogo extends AGScene {
         vrFlechas3.addAnimation(3, true, 0, 1);
         vrFlechas3.bVisible = false;
 
-
         AGSoundManager.vrMusic.stop();
         AGSoundManager.vrMusic.loadMusic("loopBateria.wav", true);
         AGSoundManager.vrMusic.setVolume(0.8f, 0.8f);
         AGSoundManager.vrMusic.play();
-        somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
+
+        somCaixaVerde = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaBaixo.wav");
+        somCaixaRosa = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaPiano.wav");
+        somCaixaAzul = AGSoundManager.vrSoundEffects.loadSoundEffect("linhaTrompete.wav");
+
+        somBoneco = AGSoundManager.vrSoundEffects.loadSoundEffect("moveAlfredo.wav");
+        somMorte = AGSoundManager.vrSoundEffects.loadSoundEffect("morteAlfredo.wav");
 
     }
     public void render(){
@@ -215,20 +217,6 @@ public class CenaJogo extends AGScene {
                 }
             }
         }
-
-        /* CODIGO PARA QUEM FOR UTILIZAR O ACELEROMETRO
-
-            if (AGInputManager.vrAccelerometer.fAccelX > 2)
-            {
-                vrCanhao.vrPosition.fX +=  AGScreenManager.iScreenWidth / 3;
-                AGSoundManager.vrSoundEffects.play(somCatraca);
-            }
-            else if (AGInputManager.vrAccelerometer.fAccelX < -2)
-            {
-                vrCanhao.vrPosition.fX-= AGScreenManager.iScreenWidth / 3;
-                AGSoundManager.vrSoundEffects.play(somCatraca);
-            }
-         */
     }
 
     //Chamado apos uma interrupcao no aplicativo
@@ -238,6 +226,7 @@ public class CenaJogo extends AGScene {
     //Chamado após um interrupçõa
     public void stop() {
     }
+
     //Metodo chamado quadro a quadro(logica do jogo)
     public void loop() {
         if(AGInputManager.vrTouchEvents.backButtonClicked()){
@@ -268,6 +257,7 @@ public class CenaJogo extends AGScene {
         atualizaplacar();
 
     }
+
     ///Funções da Caixa Verde
     private void criaatualizaCaixaVerde() {
         //Verifica se ja nao existe um sprite de tiro que pode ser reciclado
@@ -483,9 +473,6 @@ public class CenaJogo extends AGScene {
 
     }
 
-
-
-
     private void caixaVerdeNoAlfredo(){
         for (int iIndex = 0 ; iIndex < vetorDeCaixasVerde.size();iIndex++){
             if(vetorDeCaixasVerde.get(iIndex).bRecycled)
@@ -493,7 +480,7 @@ public class CenaJogo extends AGScene {
                 if(vetorDeCaixasVerde.get(iIndex).collide(vrAlfredoJogo)){
                     vetorDeCaixasVerde.get(iIndex).bRecycled = true;
                     vetorDeCaixasVerde.get(iIndex).bVisible = false;
-                    AGSoundManager.vrSoundEffects.play(somCaixa);
+                    AGSoundManager.vrSoundEffects.play(somMorte);
                     //fazer
                    //quebraCaixa(vrAlfredoJogo.vrPosition.fX, vrAlfredoJogo.vrPosition.fY);
                     vPontuacaoTemp = vPontuacaoTemp - 10;
