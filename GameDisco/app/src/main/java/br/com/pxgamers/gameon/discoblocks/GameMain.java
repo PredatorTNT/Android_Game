@@ -11,6 +11,7 @@ public class GameMain extends AGActivityGame {
     private CenaMenu vrCenaMenu = null;
     private CenaSobre vrCenaSobre = null;
     private CenaJogo vrCenaJogo = null;
+    private GameOver vrGameOver = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class GameMain extends AGActivityGame {
         vrCenaMenu = new CenaMenu(vrManager);
         vrCenaSobre = new CenaSobre(vrManager);
         vrCenaJogo = new CenaJogo(vrManager);
+        vrGameOver = new GameOver(vrManager);
 
 
         //registra a cena ao gerente do jogo
@@ -33,5 +35,6 @@ public class GameMain extends AGActivityGame {
         vrManager.addScene(vrCenaMenu);// 1 cena
         vrManager.addScene(vrCenaSobre);// 2 cena
         vrManager.addScene(vrCenaJogo);// 3 cena
+        vrManager.addScene(vrGameOver);// 4 cena
     }
 }
